@@ -225,6 +225,12 @@ tls:
   toolset:
     cert_name: tls-toolset
 
+# Enable non-encrypted proxy connections together with TLS
+plain:
+  enabled: true
+  proxy:
+    enabled: true
+
 # Enable or disable broker authentication and authorization.
 auth:
   authentication:
@@ -755,6 +761,10 @@ proxy:
     https: 443
     pulsar: 6650
     pulsarssl: 6651
+    httpNodePort: 31010
+    httpsNodePort: 31011
+    pulsarNodePort: 31000
+    pulsarsslNodePort: 31001
   service:
     annotations: {}
     type: LoadBalancer
