@@ -761,10 +761,10 @@ proxy:
     https: 443
     pulsar: 6650
     pulsarssl: 6651
-    httpNodePort: 31010
-    httpsNodePort: 31011
-    pulsarNodePort: 31000
-    pulsarsslNodePort: 31001
+    httpNodePort: 
+    httpsNodePort: 
+    pulsarNodePort: 
+    pulsarsslNodePort: 
   service:
     annotations: {}
     type: LoadBalancer
@@ -934,7 +934,7 @@ grafana:
     type: LoadBalancer
     port: 3000
     targetPort: 3000
-    nodePort: 31030
+    nodePort: 
     annotations: {}
   plugins: []
   ## Grafana configMap
@@ -997,7 +997,7 @@ pulsar_manager:
     type: LoadBalancer
     port: 9527
     targetPort: 9527
-    nodePort: 31020
+    nodePort: 
     annotations: {}
   ## Pulsar manager ingress
   ## templates/pulsar-manager-ingress.yaml

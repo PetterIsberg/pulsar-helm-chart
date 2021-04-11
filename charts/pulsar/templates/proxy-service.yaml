@@ -37,13 +37,13 @@ spec:
     - name: http
       port: {{ .Values.proxy.ports.http }}
       protocol: TCP
-      {{- if eq .Values.proxy.service.type "NodePort" }}
+      {{- if .Values.proxy.ports.httpNodePort }}
       nodePort: {{ .Values.proxy.ports.httpNodePort }}
       {{- end }}
     - name: pulsar
       port: {{ .Values.proxy.ports.pulsar }}
       protocol: TCP
-      {{- if eq .Values.proxy.service.type "NodePort" }}
+      {{- if .Values.proxy.ports.pulsarNodePort }}
       nodePort: {{ .Values.proxy.ports.pulsarNodePort }}
       {{- end }}
     {{- end }}
@@ -51,13 +51,13 @@ spec:
     - name: https
       port: {{ .Values.proxy.ports.https }}
       protocol: TCP
-      {{- if eq .Values.proxy.service.type "NodePort" }}
+      {{- if .Values.proxy.ports.httpsNodePort }}
       nodePort: {{ .Values.proxy.ports.httpsNodePort }}
       {{- end }}
     - name: pulsarssl
       port: {{ .Values.proxy.ports.pulsarssl }}
       protocol: TCP
-      {{- if eq .Values.proxy.service.type "NodePort" }}
+      {{- if .Values.proxy.ports.pulsarsslNodePort }}
       nodePort: {{ .Values.proxy.ports.pulsarsslNodePort }}
       {{- end }}
     {{- end }}
