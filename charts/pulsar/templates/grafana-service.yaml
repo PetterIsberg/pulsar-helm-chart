@@ -36,6 +36,9 @@ spec:
     - name: server
       port: {{ .Values.grafana.service.port }}
       targetPort: {{ .Values.grafana.service.targetPort }}
+      {{- if eq .Values.grafana.service.type "NodePort" }}
+      nodePort: {{ .Values.grafana.ports.nodePort }}
+      {{- end }}
       protocol: TCP
   selector:
     {{- include "pulsar.matchLabels" . | nindent 4 }}

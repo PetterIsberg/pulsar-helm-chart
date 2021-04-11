@@ -48,8 +48,13 @@ broker:
 
 proxy:
   replicaCount: 1
-  ports:
-    httpNodePort: 31010
-    pulsarNodePort: 31000
+  service:
+    type: NodePort
+
+grafana:
+  service:
+    type: NodePort
+
+pulsar_manager:
   service:
     type: NodePort
