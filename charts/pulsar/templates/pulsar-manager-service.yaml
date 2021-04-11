@@ -34,9 +34,7 @@ spec:
     - name: server
       port: {{ .Values.pulsar_manager.service.port }}
       targetPort: {{ .Values.pulsar_manager.service.targetPort }}
-      {{- if .Values.pulsar_manager.service.nodePort }}
       nodePort: {{ .Values.pulsar_manager.service.nodePort }}
-      {{- end }}
       protocol: TCP
   selector:
     app: {{ template "pulsar.name" . }}
