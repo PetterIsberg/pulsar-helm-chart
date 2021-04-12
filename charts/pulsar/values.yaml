@@ -200,8 +200,8 @@ tls:
     organization:
       - pulsar
     keySize: 4096
-    keyAlgorithm: rsa
-    keyEncoding: pkcs8
+    algorithm: RSA
+    encoding: PKCS8
   # settings for generating certs for proxy
   proxy:
     enabled: false
