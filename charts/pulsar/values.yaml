@@ -225,6 +225,12 @@ tls:
   toolset:
     cert_name: tls-toolset
 
+# Enable non-encrypted proxy connections together with TLS
+plain:
+  enabled: true
+  proxy:
+    enabled: true
+
 # Enable or disable broker authentication and authorization.
 auth:
   authentication:
@@ -755,6 +761,10 @@ proxy:
     https: 443
     pulsar: 6650
     pulsarssl: 6651
+    httpNodePort: 
+    httpsNodePort: 
+    pulsarNodePort: 
+    pulsarsslNodePort: 
   service:
     annotations: {}
     type: LoadBalancer
@@ -924,6 +934,7 @@ grafana:
     type: LoadBalancer
     port: 3000
     targetPort: 3000
+    nodePort: 
     annotations: {}
   plugins: []
   ## Grafana configMap
@@ -986,6 +997,7 @@ pulsar_manager:
     type: LoadBalancer
     port: 9527
     targetPort: 9527
+    nodePort: 
     annotations: {}
   ## Pulsar manager ingress
   ## templates/pulsar-manager-ingress.yaml

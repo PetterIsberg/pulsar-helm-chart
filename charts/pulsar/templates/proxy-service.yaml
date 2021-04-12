@@ -33,21 +33,25 @@ metadata:
 spec:
   type: {{ .Values.proxy.service.type }}
   ports:
-    {{- if or (not .Values.tls.enabled) (not .Values.tls.proxy.enabled) }}
+    {{- if and .Values.plain.enabled .Values.plain.proxy.enabled }}
     - name: http
       port: {{ .Values.proxy.ports.http }}
       protocol: TCP
+      nodePort: {{ .Values.proxy.ports.httpNodePort }}
     - name: pulsar
       port: {{ .Values.proxy.ports.pulsar }}
       protocol: TCP
+      nodePort: {{ .Values.proxy.ports.pulsarNodePort }}
     {{- end }}
     {{- if and .Values.tls.enabled .Values.tls.proxy.enabled }}
     - name: https
       port: {{ .Values.proxy.ports.https }}
       protocol: TCP
+      nodePort: {{ .Values.proxy.ports.httpsNodePort }}
     - name: pulsarssl
       port: {{ .Values.proxy.ports.pulsarssl }}
       protocol: TCP
+      nodePort: {{ .Values.proxy.ports.pulsarsslNodePort }}
     {{- end }}
   selector:
     app: {{ template "pulsar.name" . }}
