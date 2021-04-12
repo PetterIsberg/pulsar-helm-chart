@@ -21,11 +21,7 @@
 
 NAMESPACE=cert-manager
 NAME=cert-manager
-VERSION=v0.13.0
-
-# Install cert-manager CustomResourceDefinition resources
-echo "Installing cert-manager CRD resources ..."
-kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/${VERSION}/deploy/manifests/00-crds.yaml
+VERSION=v1.3.0
 
 # Create the namespace 
 kubectl get ns ${NAMESPACE}
@@ -50,6 +46,7 @@ echo "Installing cert-manager ${VERSION} to namespace ${NAMESPACE} as '${NAME}' 
 helm install \
   --namespace ${NAMESPACE} \
   --version ${VERSION} \
+  --set installCRDs=true \
   ${NAME} \
   jetstack/cert-manager
 echo "Successfully installed cert-manager ${VERSION}."
